@@ -2,7 +2,7 @@ import { defaultComponents, PortableText } from '@portabletext/react'
 import { graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import SEO from '../components/Seo'
+import Seo from '../components/seo'
 
 const TermStyles = styled.div`
   word-wrap: break-word;
@@ -35,7 +35,7 @@ export default function TermsConditions({ data }) {
   const terms = data.terms.nodes
   return (
     <>
-      <SEO title="Terms &amp; Conditions" />
+      <Seo title="Terms &amp; Conditions" />
       <TermStyles>
         <div className="overlord">
           <p className="updateDate">Last updated: May 17, 2022</p>
