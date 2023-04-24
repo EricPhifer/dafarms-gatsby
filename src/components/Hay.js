@@ -1,3 +1,4 @@
+import { PortableText } from '@portabletext/react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import styled from 'styled-components'
@@ -193,78 +194,21 @@ export default function Hay() {
   const { nodes } = hay
   return (
     <>
-      {nodes.map(node => (
+      {nodes.map((node, index) => (
         <Section id="carousels-image-with-words" key={node.id}>
           <Slider>
             <Slides className="slides">
-              <Slide className="slide" id="slide1">
+              <Slide className="slide" id={`slide${index + 1}`}>
                 <RandomOne />
                 <Content>
-                  <H3>Naturally, You Must Be Thinking "How Stunning..."</H3>
+                  <H3>{node.id}</H3>
                   <Paragraph>
-                    A wonderful serenity has taken possession of my entire soul,
-                    like these sweet mornings of spring which I enjoy with my
-                    whole heart. I am alone, and feel the charm of existence in
-                    this spot, which was created for the bliss of souls like
-                    mine.I am so happy, my dear friend, so absorbed in the
-                    exquisite sense of mere tranquil existence, that I neglect
-                    my talents. I should be incapable of drawing a single stroke
-                    at the present moment; and yet I feel that I never was a
-                    greater artist than now.
-                  </Paragraph>
-                </Content>
-              </Slide>
-              <Slide className="slide" id="slide2">
-                <RandomTwo />
-                <Content>
-                  <H3>Don't Forget, Tomorrow's Arbor Day</H3>
-                  <Paragraph>
-                    When, while the lovely valley teems with vapour around me,
-                    and the meridian sun strikes the upper surface of the
-                    impenetrable foliage of my trees, and but a few stray gleams
-                    steal into the inner sanctuary, I throw myself down among
-                    the tall grass by the trickling stream; and, as I lie close
-                    to the earth, a thousand unknown plants are noticed by me:
-                    when I hear the buzz of the little world among the stalks,
-                    and grow familiar with the countless indescribable forms of
-                    the insects and flies, then I feel the presence of the
-                    Almighty, who formed us in his own image, and the breath...
-                  </Paragraph>
-                </Content>
-              </Slide>
-              <Slide className="slide" id="slide3">
-                <RandomThree />
-                <Content>
-                  <H3>People Have Built Some Pretty Magnifecent Things</H3>
-                  <Paragraph>
-                    Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia, there live the blind
-                    texts. Separated they live in Bookmarksgrove right at the
-                    coast of the Semantics, a large language ocean. A small
-                    river named Duden flows by their place and supplies it with
-                    the necessary regelialia. It is a paradisematic country, in
-                    which roasted parts of sentences fly into your mouth.
-                  </Paragraph>
-                </Content>
-              </Slide>
-              <Slide className="slide" id="slide4">
-                <RandomFour />
-                <Content>
-                  <H3>Neither Height, Nor Depth...</H3>
-                  <Paragraph>
-                    For I am convinced that neither death nor life, neither
-                    angels nor demons, neither the present nor the future, nor
-                    any powers, neither height nor depth, nor anything else in
-                    all creation, will be able to separate us from the love of
-                    God that is in Christ Jesus our Lord.
+                    <PortableText />
                   </Paragraph>
                 </Content>
               </Slide>
             </Slides>
-            <Nav to="#slide1">1</Nav>
-            <Nav to="#slide2">2</Nav>
-            <Nav to="#slide3">3</Nav>
-            <Nav to="#slide4">4</Nav>
+            <Nav to={`slide${index + 1}`}>{index + 1}</Nav>
           </Slider>
         </Section>
       ))}
