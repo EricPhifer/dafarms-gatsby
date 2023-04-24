@@ -16,15 +16,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: process.env.SANITY_PROJECT_ID,
-        dataset: process.env.SANITY_DATASET,
+        projectId: 'j6prnqim',
+        dataset: 'production',
       },
     },
     {
       resolve: 'gatsby-plugin-sanity-image',
       options: {
-        projectId: process.env.SANITY_PROJECT_ID,
-        dataset: process.env.SANITY_DATASET,
+        projectId: 'j6prnqim',
+        dataset: 'production',
       },
     },
     {
