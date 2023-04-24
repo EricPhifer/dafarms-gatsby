@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import GlobalStyles from '../styles/GlobalStyles'
 import Typography from '../styles/Typography'
-import Copyright from './copyright'
+import Copyright from './Copyright'
 
 const SiteStyles = styled.div`
   width: 100vw;

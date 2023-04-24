@@ -207,17 +207,17 @@ const Paragraph = styled.p`
   }
 `
 
-export default function CardCarousel() {
-  const { imagecarousel } = useStaticQuery(graphql`
+export default function Recipes() {
+  const { recipes } = useStaticQuery(graphql`
     query {
-      imagecarousel: allSanityImagecarousel {
+      recipes: allSanityRecipes {
         nodes {
           id
         }
       }
     }
   `)
-  const { nodes } = imagecarousel
+  const { nodes } = recipes
   return (
     <>
       {nodes.map(node => (

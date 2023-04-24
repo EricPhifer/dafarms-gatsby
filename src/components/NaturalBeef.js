@@ -41,26 +41,26 @@ const H2 = styled.h2`
   margin: 1rem 0;
 `
 
-export default function SectionBottomImg() {
-  const { section } = useStaticQuery(graphql`
+export default function NaturalBeef() {
+  const { beef } = useStaticQuery(graphql`
     query {
-      section: allSanitySection {
+      beef: allSanityBeef {
         nodes {
+          id
+          _rawContent
+          alt
+          title
           image {
             asset {
               id
             }
             ...ImageWithPreview
           }
-          id
-          _rawContent
-          alt
-          title
         }
       }
     }
   `)
-  const { nodes } = section
+  const { nodes } = beef
   return (
     <>
       {nodes.map(node => (

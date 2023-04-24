@@ -166,16 +166,16 @@ const Quote = styled.blockquote`
 `
 
 export default function ReviewCarousel() {
-  const { imagecarousel } = useStaticQuery(graphql`
+  const { reviews } = useStaticQuery(graphql`
     query {
-      imagecarousel: allSanityReviews {
+      reviews: allSanityReviews {
         nodes {
           id
         }
       }
     }
   `)
-  const { nodes } = imagecarousel
+  const { nodes } = reviews
   return (
     <>
       {nodes.map(node => (

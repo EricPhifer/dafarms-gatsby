@@ -1,4 +1,3 @@
-import { graphql, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import styled from 'styled-components'
 import useContact from '../utils/useContact'
@@ -99,15 +98,6 @@ const Submit = styled.button`
 `
 
 export default function StandardContact() {
-  const { contacts } = useStaticQuery(graphql`
-    query {
-      contacts: allSanityContact {
-        nodes {
-          id
-        }
-      }
-    }
-  `)
   const { values, updateValue } = useForm({
     name: '',
     email: '',
@@ -121,71 +111,65 @@ export default function StandardContact() {
   if (errMessage) {
     return <p>{errMessage}</p>
   }
-  const { nodes } = contacts
   return (
-    <>
-      {nodes.map(node => (
-        <Form
-          method="post"
-          netlify-honeypot="bot-field"
-          data-netlify="true"
-          name="standard-contact"
-          key={node.id}
-        >
-          <input type="hidden" name="bot-field" />
-          <input type="hidden" name="form-name" value="contact" />
-          <legend>Contact Me</legend>
-          <FullField className="nameEmail">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={values.name}
-              onChange={updateValue}
-              placeholder="Name"
-              className="required"
-            />
-          </FullField>
-          <InlineField className="emailPhone">
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              value={values.email}
-              onChange={updateValue}
-              placeholder="Email"
-              className="required"
-            />
-            <label htmlFor="phone">Phone</label>
-            <input
-              type="text"
-              name="phone"
-              id="phone"
-              value={values.phone}
-              onChange={updateValue}
-              placeholder="Phone"
-              className="required"
-            />
-          </InlineField>
-          <FullField className="message">
-            <label htmlFor="message">Message</label>
-            <textarea
-              name="message"
-              id="message"
-              value={values.message}
-              onChange={updateValue}
-              rows="7"
-              placeholder="What is your #1 need?"
-              className="required"
-            />
-          </FullField>
-          <Submit type="submit" value="Submit">
-            Submit
-          </Submit>
-        </Form>
-      ))}
-    </>
+    <Form
+      method="post"
+      netlify-honeypot="bot-field"
+      data-netlify="true"
+      name="standard-contact"
+    >
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="contact" />
+      <legend>Contact Me</legend>
+      <FullField className="nameEmail">
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={values.name}
+          onChange={updateValue}
+          placeholder="Name"
+          className="required"
+        />
+      </FullField>
+      <InlineField className="emailPhone">
+        <label htmlFor="email">Email</label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          value={values.email}
+          onChange={updateValue}
+          placeholder="Email"
+          className="required"
+        />
+        <label htmlFor="phone">Phone</label>
+        <input
+          type="text"
+          name="phone"
+          id="phone"
+          value={values.phone}
+          onChange={updateValue}
+          placeholder="Phone"
+          className="required"
+        />
+      </InlineField>
+      <FullField className="message">
+        <label htmlFor="message">Message</label>
+        <textarea
+          name="message"
+          id="message"
+          value={values.message}
+          onChange={updateValue}
+          rows="7"
+          placeholder="What is your #1 need?"
+          className="required"
+        />
+      </FullField>
+      <Submit type="submit" value="Submit">
+        Submit
+      </Submit>
+    </Form>
   )
 }

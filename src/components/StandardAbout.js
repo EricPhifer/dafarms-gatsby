@@ -63,7 +63,7 @@ const Image = styled.div`
 export default function StandardAbout() {
   const { about } = useStaticQuery(graphql`
     query {
-      about: allSanitySection {
+      about: allSanityAbout {
         nodes {
           id
         }

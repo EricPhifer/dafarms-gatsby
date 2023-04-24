@@ -180,17 +180,17 @@ const Paragraph = styled.p`
   }
 `
 
-export default function ImgCarouselWithWords() {
-  const { imagecarousel } = useStaticQuery(graphql`
+export default function Hay() {
+  const { hay } = useStaticQuery(graphql`
     query {
-      imagecarousel: allSanityImagecarousel {
+      hay: allSanityHay {
         nodes {
           id
         }
       }
     }
   `)
-  const { nodes } = imagecarousel
+  const { nodes } = hay
   return (
     <>
       {nodes.map(node => (

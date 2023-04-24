@@ -59,7 +59,7 @@ export default function HeroesFoot() {
         nodes {
           id
           footerthree
-          footerotwo
+          footertwo
           footerone
         }
       }

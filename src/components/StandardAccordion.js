@@ -78,16 +78,16 @@ const Paragraph = styled.p`
 `
 
 export default function StandardAccordion() {
-  const { faqs } = useStaticQuery(graphql`
+  const { cuts } = useStaticQuery(graphql`
     query {
-      faqs: allSanityFaqaccordion {
+      cuts: allSanityAccordion {
         nodes {
           id
         }
       }
     }
   `)
-  const { nodes } = faqs
+  const { nodes } = cuts
   return (
     <>
       {nodes.map(node => (
