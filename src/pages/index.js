@@ -14,7 +14,7 @@ import Cattle from '../components/Cattle'
 // Hay Section
 import Hay from '../components/Hay'
 // Recipes
-import CardCarousel from '../components/CardCarousel'
+import Recipes from '../components/Recipes'
 // About
 import StandardAbout from '../components/StandardAbout'
 // Contact
@@ -81,7 +81,7 @@ const IndexPage = () => (
       <Hay />
       <H2 id="recipes">Recipes</H2>
       <HR />
-      <CardCarousel />
+      <Recipes />
       <H2 id="about">About Us</H2>
       <HR />
       <StandardAbout />

@@ -109,51 +109,6 @@ const RandomOne = styled.div`
   }
 `
 
-const RandomTwo = styled.div`
-  width: 100%;
-  height: 50rem;
-  border-radius: 1rem 1rem 0 0;
-  background-image: url(https://source.unsplash.com/random/?trees);
-  background-position: center center;
-  background-size: cover;
-  @media only screen and (max-width: 500px) {
-    height: 30rem;
-  }
-  @media only screen and (max-height: 600px) {
-    height: 30rem;
-  }
-`
-
-const RandomThree = styled.div`
-  width: 100%;
-  height: 50rem;
-  border-radius: 1rem 1rem 0 0;
-  background-image: url(https://source.unsplash.com/random/?architecture);
-  background-position: center center;
-  background-size: cover;
-  @media only screen and (max-width: 500px) {
-    height: 30rem;
-  }
-  @media only screen and (max-height: 600px) {
-    height: 30rem;
-  }
-`
-
-const RandomFour = styled.div`
-  width: 100%;
-  height: 50rem;
-  border-radius: 1rem 1rem 0 0;
-  background-image: url(https://source.unsplash.com/random/?mountains);
-  background-position: center center;
-  background-size: cover;
-  @media only screen and (max-width: 500px) {
-    height: 30rem;
-  }
-  @media only screen and (max-height: 600px) {
-    height: 30rem;
-  }
-`
-
 const Content = styled.div`
   width: 100%;
   padding: 2rem;
