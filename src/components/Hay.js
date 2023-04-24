@@ -1,5 +1,6 @@
-import { PortableText } from '@portabletext/react'
+import { PortableText, defaultComponents } from '@portabletext/react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import SanityImage from 'gatsby-plugin-sanity-image'
 import * as React from 'react'
 import styled from 'styled-components'
 
@@ -63,6 +64,16 @@ const Slide = styled.li`
   flex-flow: column wrap;
   font-size: 10rem;
   color: var(--white);
+  img {
+    max-height: 50rem;
+  }
+  figcaption {
+    width: 100%;
+    background-color: var(--gray);
+    color: var(--white);
+    font-size: 1.5rem;
+    text-align: right;
+  }
   &:target {
     transform: scale(0.8);
   }
@@ -94,27 +105,19 @@ const Nav = styled(Link)`
   }
 `
 
-const RandomOne = styled.div`
-  width: 100%;
-  height: 50rem;
-  border-radius: 1rem 1rem 0 0;
-  background-image: url(https://source.unsplash.com/random/?nature);
-  background-position: center center;
-  background-size: cover;
-  @media only screen and (max-width: 500px) {
-    height: 30rem;
-  }
-  @media only screen and (max-height: 600px) {
-    height: 30rem;
-  }
-`
-
 const Content = styled.div`
   width: 100%;
   padding: 2rem;
   background-color: var(--gray);
   border-radius: 0 0 1rem 1rem;
   overflow-x: auto;
+  p {
+    font-size: 2rem;
+    padding: 0.5rem 0;
+    @media only screen and (max-width: 500px) {
+      font-size: 1.5rem;
+    }
+  }
   @media only screen and (max-width: 500px) {
     height: 50%;
   }
@@ -128,13 +131,7 @@ const H3 = styled.h3`
   padding: 0.5rem 0 0;
 `
 
-const Paragraph = styled.p`
-  font-size: 2rem;
-  padding: 0.5rem 0;
-  @media only screen and (max-width: 500px) {
-    font-size: 1.5rem;
-  }
-`
+const Paragraph = styled.p``
 
 export default function Hay() {
   const { hay } = useStaticQuery(graphql`
@@ -142,31 +139,51 @@ export default function Hay() {
       hay: allSanityHay {
         nodes {
           id
+          _rawContent
+          title
+          alt
+          source
+          image {
+            asset {
+              id
+            }
+            ...ImageWithPreview
+          }
         }
       }
     }
   `)
   const { nodes } = hay
   return (
-    <>
-      {nodes.map((node, index) => (
-        <Section id="carousels-image-with-words" key={node.id}>
-          <Slider>
-            <Slides className="slides">
-              <Slide className="slide" id={`slide${index + 1}`}>
-                <RandomOne />
-                <Content>
-                  <H3>{node.id}</H3>
-                  <Paragraph>
-                    <PortableText />
-                  </Paragraph>
-                </Content>
-              </Slide>
-            </Slides>
-            <Nav to={`slide${index + 1}`}>{index + 1}</Nav>
-          </Slider>
-        </Section>
-      ))}
-    </>
+    <Section id="carousels-image-with-words">
+      <Slider>
+        <Slides className="slides">
+          {nodes.map((node, index) => (
+            <Slide className="slide" id={`slide${index}`} key={node.id}>
+              <SanityImage
+                {...node.image}
+                alt={node.alt}
+                style={{
+                  objectFit: 'cover',
+                  auto: 'format',
+                }}
+              />
+              <Content>
+                <H3>{node.title}</H3>
+                <PortableText
+                  value={node._rawContent}
+                  components={defaultComponents}
+                />
+              </Content>
+            </Slide>
+          ))}
+        </Slides>
+        {nodes.map((node, index) => (
+          <Nav to={`slide${index}`} key={node.id}>
+            {index + 1}
+          </Nav>
+        ))}
+      </Slider>
+    </Section>
   )
 }

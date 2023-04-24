@@ -53,7 +53,7 @@ const Img = styled(Link)`
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem;
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 815px) {
     width: 5rem;
   }
 `
@@ -273,7 +273,7 @@ export default function StoryNav() {
       {nodes.map(node => (
         <Container key={node.id}>
           <Nav>
-            <Img to="/storybrand#top">
+            <Img to="#top">
               <SanityImage
                 {...node.logo}
                 alt={node.alt}
@@ -295,7 +295,7 @@ export default function StoryNav() {
             </Link>
           </Nav>
           <Mobile>
-            <Img to="/storybrand#top">
+            <Img to="#top">
               <SanityImage
                 {...node.logo}
                 alt={node.alt}

@@ -18,7 +18,7 @@ const Header = styled.header`
 
 const Container = styled.div`
   width: 100%;
-  height: 50%;
+  height: 30%;
   position: absolute;
   display: flex;
   flex-flow: column wrap;
@@ -29,7 +29,7 @@ const Container = styled.div`
   z-index: 10;
   h1,
   h2 {
-    padding: 0 2rem;
+    padding: 0;
   }
   // Landscape view
   @media only screen and (max-height: 600px) {
@@ -45,33 +45,32 @@ const Container = styled.div`
 
 const Title = styled.h1`
   margin: 0;
-  margin-bottom: 2rem;
-  font-size: 8rem;
+  font-size: 10rem;
   text-shadow: 0.1rem 0 0 var(--black), 0 0.1rem 0 var(--black),
     -0.1rem 0 0 var(--black), 0 -0.1rem 0 var(--black);
   // Mobile view
   @media only screen and (max-width: 615px) {
-    font-size: 3.75rem;
+    font-size: 7rem;
   }
   // Landscape view
   @media only screen and (max-height: 600px) {
-    font-size: 3.75rem;
+    font-size: 7rem;
     margin: 0;
   }
 `
 
 const Motto = styled.h2`
   margin: 0;
-  font-size: 3rem;
+  font-size: 5rem;
   text-shadow: 0.1rem 0 0 var(--black), 0 0.1rem 0 var(--black),
     -0.1rem 0 0 var(--black), 0 -0.1rem 0 var(--black);
   // Mobile view
   @media only screen and (max-width: 615px) {
-    font-size: 2rem;
+    font-size: 4rem;
   }
   // Landscape view
   @media only screen and (max-height: 600px) {
-    font-size: 2rem;
+    font-size: 4rem;
   }
 `
 

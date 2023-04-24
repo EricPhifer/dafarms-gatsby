@@ -74,7 +74,7 @@ export default function HeroesFoot() {
             <p>{node.footerone}</p>
           </Three>
           <Three className="second">
-            <p>{node.footerotwo}</p>
+            <p>{node.footertwo}</p>
           </Three>
           <Three>
             <p>{node.footerthree}</p>

@@ -1,4 +1,6 @@
+import { PortableText, defaultComponents } from '@portabletext/react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import SanityImage from 'gatsby-plugin-sanity-image'
 import * as React from 'react'
 import styled from 'styled-components'
 
@@ -62,6 +64,16 @@ const Slide = styled.li`
   flex-flow: column wrap;
   font-size: 10rem;
   color: var(--white);
+  img {
+    max-height: 50rem;
+  }
+  figcaption {
+    width: 100%;
+    background-color: var(--gray);
+    color: var(--white);
+    font-size: 1.5rem;
+    text-align: right;
+  }
   &:target {
     transform: scale(0.8);
   }
@@ -93,72 +105,19 @@ const Nav = styled(Link)`
   }
 `
 
-const RandomOne = styled.div`
-  width: 100%;
-  height: 50rem;
-  border-radius: 1rem 1rem 0 0;
-  background-image: url(https://source.unsplash.com/random/?nature);
-  background-position: center center;
-  background-size: cover;
-  @media only screen and (max-width: 500px) {
-    height: 30rem;
-  }
-  @media only screen and (max-height: 600px) {
-    height: 30rem;
-  }
-`
-
-const RandomTwo = styled.div`
-  width: 100%;
-  height: 50rem;
-  border-radius: 1rem 1rem 0 0;
-  background-image: url(https://source.unsplash.com/random/?trees);
-  background-position: center center;
-  background-size: cover;
-  @media only screen and (max-width: 500px) {
-    height: 30rem;
-  }
-  @media only screen and (max-height: 600px) {
-    height: 30rem;
-  }
-`
-
-const RandomThree = styled.div`
-  width: 100%;
-  height: 50rem;
-  border-radius: 1rem 1rem 0 0;
-  background-image: url(https://source.unsplash.com/random/?architecture);
-  background-position: center center;
-  background-size: cover;
-  @media only screen and (max-width: 500px) {
-    height: 30rem;
-  }
-  @media only screen and (max-height: 600px) {
-    height: 30rem;
-  }
-`
-
-const RandomFour = styled.div`
-  width: 100%;
-  height: 50rem;
-  border-radius: 1rem 1rem 0 0;
-  background-image: url(https://source.unsplash.com/random/?mountains);
-  background-position: center center;
-  background-size: cover;
-  @media only screen and (max-width: 500px) {
-    height: 30rem;
-  }
-  @media only screen and (max-height: 600px) {
-    height: 30rem;
-  }
-`
-
 const Content = styled.div`
   width: 100%;
   padding: 2rem;
   background-color: var(--gray);
   border-radius: 0 0 1rem 1rem;
   overflow-x: auto;
+  p {
+    font-size: 2rem;
+    padding: 0.5rem 0;
+    @media only screen and (max-width: 500px) {
+      font-size: 1.5rem;
+    }
+  }
   @media only screen and (max-width: 500px) {
     height: 50%;
   }
@@ -172,102 +131,56 @@ const H3 = styled.h3`
   padding: 0.5rem 0 0;
 `
 
-const Paragraph = styled.p`
-  font-size: 2rem;
-  padding: 0.5rem 0;
-  @media only screen and (max-width: 500px) {
-    font-size: 1.5rem;
-  }
-`
-
 export default function Cattle() {
   const { cattle } = useStaticQuery(graphql`
     query {
       cattle: allSanityCattle {
         nodes {
           id
+          _rawContent
+          title
+          alt
+          source
+          image {
+            asset {
+              id
+            }
+            ...ImageWithPreview
+          }
         }
       }
     }
   `)
   const { nodes } = cattle
   return (
-    <>
-      {nodes.map(node => (
-        <Section id="carousels-image-with-words" key={node.id}>
-          <Slider>
-            <Slides className="slides">
-              <Slide className="slide" id="slide1">
-                <RandomOne />
-                <Content>
-                  <H3>Naturally, You Must Be Thinking "How Stunning..."</H3>
-                  <Paragraph>
-                    A wonderful serenity has taken possession of my entire soul,
-                    like these sweet mornings of spring which I enjoy with my
-                    whole heart. I am alone, and feel the charm of existence in
-                    this spot, which was created for the bliss of souls like
-                    mine.I am so happy, my dear friend, so absorbed in the
-                    exquisite sense of mere tranquil existence, that I neglect
-                    my talents. I should be incapable of drawing a single stroke
-                    at the present moment; and yet I feel that I never was a
-                    greater artist than now.
-                  </Paragraph>
-                </Content>
-              </Slide>
-              <Slide className="slide" id="slide2">
-                <RandomTwo />
-                <Content>
-                  <H3>Don't Forget, Tomorrow's Arbor Day</H3>
-                  <Paragraph>
-                    When, while the lovely valley teems with vapour around me,
-                    and the meridian sun strikes the upper surface of the
-                    impenetrable foliage of my trees, and but a few stray gleams
-                    steal into the inner sanctuary, I throw myself down among
-                    the tall grass by the trickling stream; and, as I lie close
-                    to the earth, a thousand unknown plants are noticed by me:
-                    when I hear the buzz of the little world among the stalks,
-                    and grow familiar with the countless indescribable forms of
-                    the insects and flies, then I feel the presence of the
-                    Almighty, who formed us in his own image, and the breath...
-                  </Paragraph>
-                </Content>
-              </Slide>
-              <Slide className="slide" id="slide3">
-                <RandomThree />
-                <Content>
-                  <H3>People Have Built Some Pretty Magnifecent Things</H3>
-                  <Paragraph>
-                    Far far away, behind the word mountains, far from the
-                    countries Vokalia and Consonantia, there live the blind
-                    texts. Separated they live in Bookmarksgrove right at the
-                    coast of the Semantics, a large language ocean. A small
-                    river named Duden flows by their place and supplies it with
-                    the necessary regelialia. It is a paradisematic country, in
-                    which roasted parts of sentences fly into your mouth.
-                  </Paragraph>
-                </Content>
-              </Slide>
-              <Slide className="slide" id="slide4">
-                <RandomFour />
-                <Content>
-                  <H3>Neither Height, Nor Depth...</H3>
-                  <Paragraph>
-                    For I am convinced that neither death nor life, neither
-                    angels nor demons, neither the present nor the future, nor
-                    any powers, neither height nor depth, nor anything else in
-                    all creation, will be able to separate us from the love of
-                    God that is in Christ Jesus our Lord.
-                  </Paragraph>
-                </Content>
-              </Slide>
-            </Slides>
-            <Nav to="#slide1">1</Nav>
-            <Nav to="#slide2">2</Nav>
-            <Nav to="#slide3">3</Nav>
-            <Nav to="#slide4">4</Nav>
-          </Slider>
-        </Section>
-      ))}
-    </>
+    <Section id="carousels-image-with-words">
+      <Slider>
+        <Slides className="slides">
+          {nodes.map((node, index) => (
+            <Slide className="slide" id={`slide${index}`} key={node.id}>
+              <SanityImage
+                {...node.image}
+                alt={node.alt}
+                style={{
+                  objectFit: 'cover',
+                  auto: 'format',
+                }}
+              />
+              <figcaption>{node.source}</figcaption>
+              <Content>
+                <H3>{node.title}</H3>
+                <PortableText
+                  value={node._rawContent}
+                  components={defaultComponents}
+                />
+              </Content>
+            </Slide>
+          ))}
+        </Slides>
+        {nodes.map((node, index) => (
+          <Nav to={`#slide${index}`}>{index + 1}</Nav>
+        ))}
+      </Slider>
+    </Section>
   )
 }

@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const Typography = createGlobalStyle`
   html {
-    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: DIN Condensed, Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
    
     color: #000;
   }
@@ -17,6 +17,10 @@ const Typography = createGlobalStyle`
     margin: 0;
   }
   
+  p {
+    font-size: 2rem;
+  }
+
   a {
     text-decoration: none;
     color: var(--blue);

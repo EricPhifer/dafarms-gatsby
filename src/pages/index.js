@@ -66,7 +66,7 @@ const IndexPage = () => (
       <HeroesFoot />
     </Hero>
     <Main>
-      <H2 id="beef">Natural Beef</H2>
+      <H2 id="natural-beef">Natural Beef</H2>
       <HR />
       <NaturalBeef />
       <StandardAccordion />

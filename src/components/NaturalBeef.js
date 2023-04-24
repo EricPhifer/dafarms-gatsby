@@ -17,7 +17,6 @@ const Section = styled.section`
 const ShadowCard = styled.div`
   margin: 2rem 1rem;
   padding: 3rem;
-  box-shadow: 0.2rem 0.2rem 1rem var(--gray);
   border-radius: 1rem;
   p {
     padding: 0.5rem 0;
@@ -35,10 +34,6 @@ const ShadowCard = styled.div`
   @media only screen and (max-width: 500px) {
     padding: 2rem;
   }
-`
-
-const H2 = styled.h2`
-  margin: 1rem 0;
 `
 
 export default function NaturalBeef() {
@@ -66,7 +61,6 @@ export default function NaturalBeef() {
       {nodes.map(node => (
         <Section id="sections-bottom-img" key={node.id}>
           <ShadowCard>
-            <H2>{node.title}</H2>
             <PortableText
               value={node._rawContent}
               components={defaultComponents}
