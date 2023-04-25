@@ -6,6 +6,9 @@ import Seo from '../components/seo'
 
 const PolicyStyles = styled.div`
   word-wrap: break-word;
+  p {
+    padding: 0.5rem 0;
+  }
   .overlord {
     max-width: 900px;
     margin: 0 auto;
@@ -51,7 +54,6 @@ export default function PrivacyPolicy() {
       <Seo title="Privacy Policy" />
       <PolicyStyles>
         <div className="overlord">
-          <p className="updateDate">Last updated: May 17, 2022</p>
           {nodes.map(policy => (
             <section key={policy.id}>
               <h1>{policy.title}</h1>

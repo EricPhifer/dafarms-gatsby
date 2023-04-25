@@ -38,7 +38,11 @@ const Copyright = () => (
       </Item>
       <Item>
         Designed & Developed by{' '}
-        <a href="https://ericphifer.com/contact" rel="noopener">
+        <a
+          href="https://ericphifer.com/contact"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           Phifer Web Solutions
         </a>
       </Item>

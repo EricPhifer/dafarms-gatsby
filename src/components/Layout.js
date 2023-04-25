@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import GlobalStyles from '../styles/GlobalStyles'
 import Typography from '../styles/Typography'
+import StoryNav from './StoryNav'
 import Copyright from './copyright'
 
 const SiteStyles = styled.div`
@@ -20,6 +21,7 @@ export default function Layout({ children }) {
       <GlobalStyles />
       <Typography />
       <SiteStyles>
+        <StoryNav />
         {children}
         <Copyright />
       </SiteStyles>

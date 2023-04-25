@@ -16,7 +16,6 @@ const Section = styled.section`
 
 const ShadowCard = styled.div`
   margin: 2rem 1rem;
-  padding: 3rem;
   border-radius: 1rem;
   p {
     padding: 0.5rem 0;
@@ -24,15 +23,22 @@ const ShadowCard = styled.div`
   }
   img {
     width: 100%;
-    height: 30rem;
     margin: 1.5rem 0;
     position: relative;
     @media only screen and (max-width: 500px) {
       height: 15rem;
     }
+    figcaption {
+      padding: 0.5rem 1rem 0;
+      width: 100%;
+      background-color: var(--gray);
+      color: var(--white);
+      font-size: 1.5rem;
+      text-align: right;
+    }
   }
   @media only screen and (max-width: 500px) {
-    padding: 2rem;
+    padding: 0;
   }
 `
 
@@ -73,6 +79,9 @@ export default function NaturalBeef() {
                 auto: 'format',
               }}
             />
+            <figcaption>
+              {node.source ? `Source: ${node.source}` : ''}
+            </figcaption>
           </ShadowCard>
         </Section>
       ))}

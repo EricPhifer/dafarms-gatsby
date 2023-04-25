@@ -33,14 +33,14 @@ const Right = styled.div`
     width: 100%;
     height: 100%;
     position: relative;
-    figcaption {
-      color: var(--black);
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      text-shadow: 0.1rem 0 0 var(--white), 0.1rem 0 var(--white),
-        -0.1rem 0 0 var(--white), 0 -0.1rem 0 var(--white);
-    }
+  }
+  figcaption {
+    padding: 0.5rem 1rem 0;
+    width: 100%;
+    background-color: var(--gray);
+    color: var(--white);
+    font-size: 1.5rem;
+    text-align: right;
   }
 `
 
@@ -91,11 +91,9 @@ export default function StandardAbout() {
                   auto: 'format',
                 }}
               />
-              {node.source ? (
-                <figcaption>Source: {node.source}</figcaption>
-              ) : (
-                <div />
-              )}
+              <figcaption>
+                {node.source ? `Source: ${node.source}` : ''}
+              </figcaption>
             </Right>
           </Grid>
         </Section>

@@ -67,12 +67,12 @@ const Card = styled.li`
   img {
     max-height: 50rem;
     width: 100%;
+    margin: 0 2rem;
     box-shadow: 0.3rem 0.3rem 1rem var(--gray);
   }
   figcaption {
+    padding: 0.5rem 1rem 0;
     width: 100%;
-    background-color: var(--gray);
-    color: var(--white);
     font-size: 1.5rem;
     text-align: right;
   }
@@ -201,7 +201,9 @@ export default function Recipes() {
                   auto: 'format',
                 }}
               />
-              <figcaption>{node.source}</figcaption>
+              <figcaption>
+                {node.source ? `Source: ${node.source}` : ''}
+              </figcaption>
               <Content>
                 <Left>
                   <H4>Ingredients</H4>

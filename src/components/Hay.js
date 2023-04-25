@@ -69,6 +69,7 @@ const Slide = styled.li`
   }
   figcaption {
     width: 100%;
+    padding: 0.5rem 1rem 0;
     background-color: var(--gray);
     color: var(--white);
     font-size: 1.5rem;
@@ -166,6 +167,9 @@ export default function Hay() {
                   auto: 'format',
                 }}
               />
+              <figcaption>
+                {node.source ? `Source: ${node.source}` : ''}
+              </figcaption>
               <Content>
                 <H3>{node.title}</H3>
                 <PortableText

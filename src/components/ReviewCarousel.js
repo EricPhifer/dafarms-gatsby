@@ -20,6 +20,7 @@ const Reviews = styled.ol`
   max-width: 80rem;
   display: flex;
   align-items: baseline;
+  margin: 0 auto;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -59,8 +60,6 @@ const Review = styled.li`
 const Snapper = styled.div`
   width: 100%;
   height: 100%;
-  position: absolute;
-  bottom: 0;
   display: flex;
   align-items: center;
   .prev svg {
@@ -128,6 +127,7 @@ const Nav = styled(Link)`
 
 const Content = styled.div`
   width: 80%;
+  min-height: 20rem;
   margin: 0 auto;
   display: grid;
   grid-template-rows: repeat(2, minmax(auto, 1fr));
@@ -137,10 +137,13 @@ const Content = styled.div`
   @media only screen and (max-width: 900px) {
     grid-template-columns: 1fr;
   }
+  @media only screen and (max-width: 687px) {
+    min-height: 30rem;
+  }
 `
 
 const Top = styled.div`
-  max-width: 30rem;
+  max-width: 50rem;
   margin: 1rem 1rem 1rem 0;
   p {
     margin-top: 1rem;

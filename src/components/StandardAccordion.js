@@ -24,7 +24,7 @@ const Expander = styled.div`
   width: 100%;
   min-height: 5rem;
   margin: 2rem 0;
-  padding: 6rem 2rem 2rem;
+  padding: 7rem 2rem 2rem;
   background-color: var(--black);
   position: relative;
   display: grid;
@@ -50,6 +50,7 @@ const Expander = styled.div`
   input:checked ~ .content {
     width: 100%;
     height: 100%;
+    gap: 1rem;
     padding: 2rem;
     .card {
       width: auto;
@@ -83,7 +84,6 @@ const Blank = styled.div`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(auto, 1fr));
-  gap: 1rem;
   background-color: var(--white);
   transition: all 0.3s ease-in-out;
   z-index: 300;
@@ -95,7 +95,7 @@ const Grid = styled.div`
     padding: 0.2rem 0.5rem;
     text-align: right;
   }
-  @media only screen and (max-width: 1080px) {
+  @media only screen and (max-width: 1070px) {
     grid-template-columns: repeat(2, minmax(auto, 1fr));
   }
   @media only screen and (max-width: 550px) {
@@ -213,14 +213,18 @@ export default function StandardAccordion() {
             {node.cut.map(n => (
               <Card className="card" key={n.id}>
                 <H4>{n.title}</H4>
-                <SanityImage
-                  {...n.image}
-                  alt={n.alt}
-                  style={{
-                    objectFit: 'cover',
-                    auto: 'format',
-                  }}
-                />
+                {n.image ? (
+                  <SanityImage
+                    {...n.image}
+                    alt={n.alt}
+                    style={{
+                      objectFit: 'cover',
+                      auto: 'format',
+                    }}
+                  />
+                ) : (
+                  <div />
+                )}
                 <figcaption>{n.source ? `Source: ${n.source}` : ''}</figcaption>
                 <TinyGrid>
                   <Left>
