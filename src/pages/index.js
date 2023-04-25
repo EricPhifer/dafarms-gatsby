@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import HeroesFoot from '../components/HeroesFoot'
 import StoryHero from '../components/StoryHero'
-import StoryNav from '../components/StoryNav'
 // Natural Beef Section
 import NaturalBeef from '../components/NaturalBeef'
 import StandardAccordion from '../components/StandardAccordion'
@@ -81,7 +80,6 @@ export default function IndexPage() {
 
   return (
     <>
-      <StoryNav />
       <Hero id="top">
         <StoryHero />
         <HeroesFoot />
