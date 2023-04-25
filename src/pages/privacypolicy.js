@@ -1,5 +1,5 @@
 import { defaultComponents, PortableText } from '@portabletext/react'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import Seo from '../components/seo'
@@ -33,15 +33,26 @@ const PolicyStyles = styled.div`
   }
 `
 
-export default function PrivacyPolicy({ data }) {
-  const policies = data.policies.nodes
+export default function PrivacyPolicy() {
+  const { policies } = useStaticQuery(graphql`
+    query {
+      policies: allSanityPrivacypolicy {
+        nodes {
+          id
+          title
+          _rawContent
+        }
+      }
+    }
+  `)
+  const { nodes } = policies
   return (
     <>
       <Seo title="Privacy Policy" />
       <PolicyStyles>
         <div className="overlord">
           <p className="updateDate">Last updated: May 17, 2022</p>
-          {policies.map(policy => (
+          {nodes.map(policy => (
             <section key={policy.id}>
               <h1>{policy.title}</h1>
               <section className="policyContainer">
@@ -58,15 +69,3 @@ export default function PrivacyPolicy({ data }) {
     </>
   )
 }
-
-export const query = graphql`
-  query {
-    policies: allSanityPrivacypolicy {
-      nodes {
-        id
-        title
-        _rawContent
-      }
-    }
-  }
-`

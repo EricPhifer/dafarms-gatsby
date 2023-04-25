@@ -67,6 +67,7 @@ const Card = styled.li`
   img {
     max-height: 50rem;
     width: 100%;
+    box-shadow: 0.3rem 0.3rem 1rem var(--gray);
   }
   figcaption {
     width: 100%;
@@ -129,6 +130,13 @@ const Left = styled.div`
 const Right = styled.div`
   margin: 1rem 0 3rem;
   grid-column: 2 / span 2;
+  p {
+    font-size: 2rem;
+    padding: 0.5rem 0;
+    @media only screen and (max-width: 500px) {
+      font-size: 1.5rem;
+    }
+  }
   @media only screen and (max-width: 900px) {
     grid-column: 1;
   }
@@ -147,14 +155,6 @@ const List = styled.ul`
 const Item = styled.li`
   font-size: 1.5rem;
   padding: 0.5rem 0;
-`
-
-const Paragraph = styled.p`
-  font-size: 2rem;
-  padding: 0.5rem 0;
-  @media only screen and (max-width: 500px) {
-    font-size: 1.5rem;
-  }
 `
 
 export default function Recipes() {

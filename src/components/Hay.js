@@ -131,8 +131,6 @@ const H3 = styled.h3`
   padding: 0.5rem 0 0;
 `
 
-const Paragraph = styled.p``
-
 export default function Hay() {
   const { hay } = useStaticQuery(graphql`
     query {

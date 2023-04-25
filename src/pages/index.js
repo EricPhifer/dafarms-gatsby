@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 // Import Components - Hero Section
+import { graphql, useStaticQuery } from 'gatsby'
 import HeroesFoot from '../components/HeroesFoot'
 import StoryHero from '../components/StoryHero'
 import StoryNav from '../components/StoryNav'
@@ -58,40 +59,67 @@ const HR = styled.hr`
   border: 0.5rem solid var(--orange);
 `
 
-const IndexPage = () => (
-  <>
-    <StoryNav />
-    <Hero id="top">
-      <StoryHero />
-      <HeroesFoot />
-    </Hero>
-    <Main>
-      <H2 id="natural-beef">Natural Beef</H2>
-      <HR />
-      <NaturalBeef />
-      <StandardAccordion />
-      <H2 id="reviews">Happy Customers</H2>
-      <HR />
-      <ReviewCarousel />
-      <H2 id="cattle">Cattle Available</H2>
-      <HR />
-      <Cattle />
-      <H2 id="hay">Quality Hay</H2>
-      <HR />
-      <Hay />
-      <H2 id="recipes">Recipes</H2>
-      <HR />
-      <Recipes />
-      <H2 id="about">About Us</H2>
-      <HR />
-      <StandardAbout />
-      <H2 id="contact">Contact</H2>
-      <HR />
-      <StandardContact />
-    </Main>
-  </>
-)
+export default function IndexPage() {
+  const { about, beef } = useStaticQuery(graphql`
+    query {
+      about: allSanityAbout {
+        nodes {
+          id
+          title
+        }
+      }
+      beef: allSanityBeef {
+        nodes {
+          id
+          title
+        }
+      }
+    }
+  `)
+  const an = about.nodes
+  const bn = beef.nodes
 
-export default IndexPage
+  return (
+    <>
+      <StoryNav />
+      <Hero id="top">
+        <StoryHero />
+        <HeroesFoot />
+      </Hero>
+      <Main>
+        {bn.map(b => (
+          <H2 id="natural-beef" key={b.id}>
+            {b.title}
+          </H2>
+        ))}
+        <HR />
+        <NaturalBeef />
+        <StandardAccordion />
+        <H2 id="reviews">Happy Customers</H2>
+        <HR />
+        <ReviewCarousel />
+        <H2 id="cattle">Cattle Available</H2>
+        <HR />
+        <Cattle />
+        <H2 id="hay">Quality Hay</H2>
+        <HR />
+        <Hay />
+        <H2 id="recipes">Recipes</H2>
+        <HR />
+        <Recipes />
+        {an.map(a => (
+          <H2 id="about" key={a.id}>
+            {a.title}
+          </H2>
+        ))}
+        <HR />
+        <StandardAbout />
+        <H2 id="contact">Contact</H2>
+        <HR />
+        <StandardContact />
+      </Main>
+    </>
+  )
+}
 
 export const Head = () => <title>D & A Farms</title>

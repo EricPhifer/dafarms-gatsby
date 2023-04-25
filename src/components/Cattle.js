@@ -162,6 +162,7 @@ export default function Cattle() {
                 {...node.image}
                 alt={node.alt}
                 style={{
+                  width: '100%',
                   objectFit: 'cover',
                   auto: 'format',
                 }}

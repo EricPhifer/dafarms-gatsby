@@ -1,5 +1,5 @@
 import { defaultComponents, PortableText } from '@portabletext/react'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import Seo from '../components/seo'
@@ -31,15 +31,26 @@ const TermStyles = styled.div`
   }
 `
 
-export default function TermsConditions({ data }) {
-  const terms = data.terms.nodes
+export default function TermsConditions() {
+  const { terms } = useStaticQuery(graphql`
+    query {
+      terms: allSanityTermsconditions {
+        nodes {
+          id
+          title
+          _rawContent
+        }
+      }
+    }
+  `)
+  const { nodes } = terms
   return (
     <>
       <Seo title="Terms &amp; Conditions" />
       <TermStyles>
         <div className="overlord">
           <p className="updateDate">Last updated: May 17, 2022</p>
-          {terms.map(term => (
+          {nodes.map(term => (
             <section key={term.id}>
               <h1>{term.title}</h1>
               <section className="termsContainer">
@@ -55,15 +66,3 @@ export default function TermsConditions({ data }) {
     </>
   )
 }
-
-export const query = graphql`
-  query {
-    terms: allSanityTermsconditions {
-      nodes {
-        id
-        title
-        _rawContent
-      }
-    }
-  }
-`
