@@ -12,7 +12,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   background: #bbb094;
-  z-index: 1001;
+  z-index: 10000;
 `
 
 const Nav = styled.nav`
@@ -99,7 +99,7 @@ const MenuToggle = styled.div`
   position: fixed;
   top: 2rem;
   right: 2.5rem;
-  z-index: 102;
+  z-index: 10002;
   -webkit-user-select: none;
   user-select: none;
   span {
@@ -110,7 +110,7 @@ const MenuToggle = styled.div`
     margin-bottom: 0.5rem;
     border-radius: 0.3rem;
     box-shadow: 0.3rem 0.3rem 0.5rem var(--black);
-    z-index: 102;
+    z-index: 10002;
     transform-origin: 0.5rem 0;
     background: var(--white);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
@@ -146,7 +146,7 @@ const MenuInput = styled.input`
   position: absolute;
   cursor: pointer;
   opacity: 0;
-  z-index: 103;
+  z-index: 10003;
   bottom: 0;
   right: 0;
 `

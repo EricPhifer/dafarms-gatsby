@@ -89,8 +89,14 @@ const Submit = styled.button`
   color: var(--white);
   border-radius: 1rem;
   font-size: 1.85rem;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--white);
+    border: 0.2rem solid var(--blue);
+    color: var(--blue);
+  }
   &:focus {
-    border: 0.2rem dotted var(--blue);
+    border: 0.2rem dotted var(--white);
   }
   @media only screen and (max-width: 900px) {
     margin-bottom: 2rem;
@@ -120,7 +126,6 @@ export default function StandardContact() {
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
-      <legend>Contact Me</legend>
       <FullField className="nameEmail">
         <label htmlFor="name">Name</label>
         <input
