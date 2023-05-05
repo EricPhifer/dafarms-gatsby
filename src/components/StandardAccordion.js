@@ -88,6 +88,7 @@ const Grid = styled.div`
   transition: all 0.3s ease-in-out;
   z-index: 300;
   img {
+    max-height: 18.1rem;
     padding: 1rem;
   }
   figcaption {
@@ -102,6 +103,7 @@ const Grid = styled.div`
     grid-template-columns: 1fr;
   }
 `
+
 const Card = styled.div`
   width: 33.33rem;
   height: 0;
