@@ -193,14 +193,18 @@ export default function Recipes() {
           {nodes.map(node => (
             <Card className="card" id="card1" key={node.id}>
               <H3>{node.title}</H3>
-              <SanityImage
-                {...node.image}
-                alt={node.alt}
-                style={{
-                  objectFit: 'cover',
-                  auto: 'format',
-                }}
-              />
+              {node.image ? (
+                <SanityImage
+                  {...node.image}
+                  alt={node.alt}
+                  style={{
+                    objectFit: 'cover',
+                    auto: 'format',
+                  }}
+                />
+              ) : (
+                <div />
+              )}
               <figcaption>
                 {node.source ? `Source: ${node.source}` : ''}
               </figcaption>

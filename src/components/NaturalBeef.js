@@ -71,14 +71,18 @@ export default function NaturalBeef() {
               value={node._rawContent}
               components={defaultComponents}
             />
-            <SanityImage
-              {...node.image}
-              alt={node.alt}
-              style={{
-                objectFit: 'cover',
-                auto: 'format',
-              }}
-            />
+            {node.image ? (
+              <SanityImage
+                {...node.image}
+                alt={node.alt}
+                style={{
+                  objectFit: 'cover',
+                  auto: 'format',
+                }}
+              />
+            ) : (
+              <div />
+            )}
             <figcaption>
               {node.source ? `Source: ${node.source}` : ''}
             </figcaption>

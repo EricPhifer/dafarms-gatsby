@@ -274,14 +274,18 @@ export default function StoryNav() {
         <Container key={node.id}>
           <Nav>
             <Img to="#top">
-              <SanityImage
-                {...node.logo}
-                alt={node.alt}
-                styles={{
-                  objectFit: 'contain',
-                  auto: 'format',
-                }}
-              />
+              {node.image ? (
+                <SanityImage
+                  {...node.logo}
+                  alt={node.alt}
+                  styles={{
+                    objectFit: 'contain',
+                    auto: 'format',
+                  }}
+                />
+              ) : (
+                <div />
+              )}
             </Img>
             {node.navlinks.map(pagelink => (
               <List key={pagelink._key}>
@@ -296,14 +300,18 @@ export default function StoryNav() {
           </Nav>
           <Mobile>
             <Img to="#top">
-              <SanityImage
-                {...node.logo}
-                alt={node.alt}
-                styles={{
-                  objectFit: 'contain',
-                  auto: 'format',
-                }}
-              />
+              {node.image ? (
+                <SanityImage
+                  {...node.logo}
+                  alt={node.alt}
+                  styles={{
+                    objectFit: 'contain',
+                    auto: 'format',
+                  }}
+                />
+              ) : (
+                <div />
+              )}
             </Img>
             <MenuToggle>
               <MenuInput

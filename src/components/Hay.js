@@ -159,14 +159,18 @@ export default function Hay() {
         <Slides className="slides">
           {nodes.map((node, index) => (
             <Slide className="slide" id={`slide${index}`} key={node.id}>
-              <SanityImage
-                {...node.image}
-                alt={node.alt}
-                style={{
-                  objectFit: 'cover',
-                  auto: 'format',
-                }}
-              />
+              {node.image ? (
+                <SanityImage
+                  {...node.image}
+                  alt={node.alt}
+                  style={{
+                    objectFit: 'cover',
+                    auto: 'format',
+                  }}
+                />
+              ) : (
+                <div />
+              )}
               <figcaption>
                 {node.source ? `Source: ${node.source}` : ''}
               </figcaption>

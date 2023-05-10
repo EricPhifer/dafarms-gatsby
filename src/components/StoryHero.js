@@ -98,16 +98,20 @@ export default function StoryHero() {
     <>
       {nodes.map(node => (
         <Header key={node.id}>
-          <SanityImage
-            {...node.image}
-            alt={node.alt}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              auto: 'format',
-            }}
-          />
+          {node.image ? (
+            <SanityImage
+              {...node.image}
+              alt={node.alt}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                auto: 'format',
+              }}
+            />
+          ) : (
+            <div />
+          )}
           <Container>
             <Title>{node.title}</Title>
             <Motto>{node.tagline}</Motto>

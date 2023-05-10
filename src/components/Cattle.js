@@ -159,15 +159,19 @@ export default function Cattle() {
         <Slides className="slides">
           {nodes.map((node, index) => (
             <Slide className="slide" id={`slide${index}`} key={node.id}>
-              <SanityImage
-                {...node.image}
-                alt={node.alt}
-                style={{
-                  width: '100%',
-                  objectFit: 'cover',
-                  auto: 'format',
-                }}
-              />
+              {node.image ? (
+                <SanityImage
+                  {...node.image}
+                  alt={node.alt}
+                  style={{
+                    width: '100%',
+                    objectFit: 'cover',
+                    auto: 'format',
+                  }}
+                />
+              ) : (
+                <div />
+              )}
               <figcaption>
                 {node.source ? `Source: ${node.source}` : ''}
               </figcaption>

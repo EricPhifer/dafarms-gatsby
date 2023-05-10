@@ -83,14 +83,18 @@ export default function StandardAbout() {
               />
             </Left>
             <Right>
-              <SanityImage
-                {...node.image}
-                alt={node.alt}
-                style={{
-                  objectFit: 'cover',
-                  auto: 'format',
-                }}
-              />
+              {node.image ? (
+                <SanityImage
+                  {...node.image}
+                  alt={node.alt}
+                  style={{
+                    objectFit: 'cover',
+                    auto: 'format',
+                  }}
+                />
+              ) : (
+                <div />
+              )}
               <figcaption>
                 {node.source ? `Source: ${node.source}` : ''}
               </figcaption>
