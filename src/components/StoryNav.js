@@ -274,7 +274,7 @@ export default function StoryNav() {
         <Container key={node.id}>
           <Nav>
             <Img to="#top">
-              {node.image ? (
+              {node.logo ? (
                 <SanityImage
                   {...node.logo}
                   alt={node.alt}
@@ -300,7 +300,7 @@ export default function StoryNav() {
           </Nav>
           <Mobile>
             <Img to="#top">
-              {node.image ? (
+              {node.logo ? (
                 <SanityImage
                   {...node.logo}
                   alt={node.alt}
