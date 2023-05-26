@@ -4,11 +4,16 @@ import * as React from 'react'
 import SanityImage from 'gatsby-plugin-sanity-image'
 import styled from 'styled-components'
 // React Icons
-import { FaAngleDown, FaOpencart } from 'react-icons/fa'
-import { GiCookingPot, GiSaucepan } from 'react-icons/gi'
-import { GrBottomCorner } from 'react-icons/gr'
-import { MdOutlineOutdoorGrill } from 'react-icons/md'
-import { TbGrillOff, TbTransitionBottom, TbXboxB } from 'react-icons/tb'
+import { FaAngleDown } from 'react-icons/fa'
+// SVG Icons
+import braise from '../images/braise-pot-roast-icon.svg'
+import broil from '../images/broil-icon.svg'
+import grill from '../images/grill-icon.svg'
+import indirectgrill from '../images/indirect-grill-icon.svg'
+import panbroil from '../images/pan-broil-skillet-icon.svg'
+import roast from '../images/roast-icon.svg'
+import skillet from '../images/skillet-to-oven-icon.svg'
+import stirfry from '../images/stir-fry-icon.svg'
 
 const Section = styled.section`
   max-width: 108rem;
@@ -153,11 +158,6 @@ const Right = styled.div`
   }
   .icon {
     position: relative;
-    svg {
-      position: static;
-      font-size: 2.5rem;
-      color: var(--black);
-    }
   }
 `
 
@@ -167,6 +167,86 @@ const H4 = styled.h4`
   top: 0.5rem;
   left: 0.5rem;
   z-index: 500;
+`
+
+const Braise = styled.div`
+  height: 2rem;
+  width: 2rem;
+  position: static;
+  background-image: url(${braise});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`
+
+const Broil = styled.div`
+  height: 2rem;
+  width: 2rem;
+  position: static;
+  background-image: url(${broil});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`
+
+const Grill = styled.div`
+  height: 2rem;
+  width: 2rem;
+  position: static;
+  background-image: url(${grill});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`
+
+const Indirect = styled.div`
+  height: 2rem;
+  width: 2rem;
+  position: static;
+  background-image: url(${indirectgrill});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`
+
+const PanBroil = styled.div`
+  height: 2rem;
+  width: 2rem;
+  position: static;
+  background-image: url(${panbroil});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`
+
+const Roast = styled.div`
+  height: 2rem;
+  width: 2rem;
+  position: static;
+  background-image: url(${roast});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`
+
+const StirFry = styled.div`
+  height: 2rem;
+  width: 2rem;
+  position: static;
+  background-image: url(${stirfry});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+`
+
+const Skillet = styled.div`
+  height: 2rem;
+  width: 2rem;
+  position: static;
+  background-image: url(${skillet});
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 `
 
 export default function StandardAccordion() {
@@ -238,51 +318,43 @@ export default function StandardAccordion() {
                   <Right>
                     <div className="top">
                       <div className="icon">
-                        {n.stirfry ? (
-                          <GrBottomCorner title="Stir-Fry" />
-                        ) : (
-                          <div />
-                        )}
+                        {n.stirfry ? <StirFry title="Stir-Fry" /> : <div />}
                       </div>
                       <div className="icon">
                         {n.skillet ? (
-                          <TbTransitionBottom title="Skillet to Oven" />
+                          <Skillet title="Skillet to Oven" />
                         ) : (
                           <div />
                         )}
                       </div>
                       <div className="icon">
-                        {n.roast ? <FaOpencart title="Roast" /> : <div />}
+                        {n.roast ? <Roast title="Roast" /> : <div />}
                       </div>
                       <div className="icon">
-                        {n.broil ? <TbXboxB title="Broil" /> : <div />}
+                        {n.broil ? <Broil title="Broil" /> : <div />}
                       </div>
                     </div>
                     <div className="bottom">
                       <div className="icon">
                         {n.panbroil ? (
-                          <GiSaucepan title="Pan-Broil Skillet" />
+                          <PanBroil title="Pan-Broil Skillet" />
                         ) : (
                           <div />
                         )}
                       </div>
                       <div className="icon">
-                        {n.grill ? (
-                          <MdOutlineOutdoorGrill title="Grill" />
-                        ) : (
-                          <div />
-                        )}
+                        {n.grill ? <Grill title="Grill" /> : <div />}
                       </div>
                       <div className="icon">
                         {n.indirectgrill ? (
-                          <TbGrillOff title="Indirect Grilling" />
+                          <Indirect title="Indirect Grilling" />
                         ) : (
                           <div />
                         )}
                       </div>
                       <div className="icon">
                         {n.braise ? (
-                          <GiCookingPot title="Braise / Pot Roast" />
+                          <Braise title="Braise / Pot Roast" />
                         ) : (
                           <div />
                         )}

@@ -85,6 +85,7 @@ const Item = styled.li`
     }
   }
 `
+
 // Mobile Styling & Responsive Design
 const Mobile = styled.div`
   display: none;
